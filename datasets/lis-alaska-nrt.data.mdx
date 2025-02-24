@@ -4,7 +4,7 @@ name: Land Information System - Alaska
 description: State of Alaska vegetation and hydrological information produced by NASA’s Short-term Prediction and Transition Center – Land Information System (SPoRT-LIS).
 
 media:
-  src: ::file ./media/lis-alaska-nrt-cover.jpg
+  src: ::file ./media/ct-ch4-monthgrid-v2023-cover.jpg
   alt: Landfill
   author:
     name:  Figure by Matt Ziminski and Youmi Oh
@@ -27,7 +27,7 @@ infoDescription: |
     - Temporal Resolution: Daily
     - Spatial Extent: Alaska    
     - Spatial Resolution: 0.03° x 0.03°   
-    - Data Units: Grams of methane per square meter per year (%)       
+    - Data Units: Percentage (%)       
     - Data Type: Research
     - Data Latency: Updated annually      
 layers:
@@ -58,7 +58,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 50
@@ -83,7 +83,7 @@ layers:
       source: NASA 
       spatialExtent: Alaska
       temporalResolution: Daily
-      unit: %                  
+      unit: Percentage (%)                  
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.total.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Total CH₄ Emission
@@ -114,7 +114,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 30
@@ -139,7 +139,7 @@ layers:
       source: NASA 
       spatialExtent: Alaska
       temporalResolution: Daily
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.microbial.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Microbial CH₄ Emission
@@ -170,7 +170,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 50
@@ -195,7 +195,7 @@ layers:
       source: NASA 
       spatialExtent: Alaska
       temporalResolution: Daily 
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.fossil.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Fossil CH₄ Emission
@@ -226,7 +226,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 8
@@ -251,7 +251,7 @@ layers:
       source: NASA 
       spatialExtent: Alaska
       temporalResolution: Daily
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.pyrogenic.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Pyrogenic CH₄ Emission
