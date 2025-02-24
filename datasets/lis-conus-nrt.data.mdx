@@ -4,7 +4,7 @@ name: Land Information System - CONUS
 description: Relative soil moisture (RSM) percentiles integrated over various depths for the contiguous United States (CONUS) produced by NASA’s Short-term Prediction and Transition Center – Land Information System (SPoRT-LIS).
 
 media:
-  src: ::file ./media/lis-conus-nrt-cover.jpg
+  src: ::file ./media/ct-ch4-monthgrid-v2023-cover.jpg
   alt: Landfill
   author:
     name:  Figure by Matt Ziminski and Youmi Oh
@@ -27,7 +27,7 @@ infoDescription: |
     - Temporal Resolution: Daily
     - Spatial Extent: CONUS    
     - Spatial Resolution: 1° x 1°   
-    - Data Units: Grams of methane per square meter per year (%)       
+    - Data Units: Percentage (%)      
     - Data Type: Research
     - Data Latency: Updated annually      
 layers:
@@ -58,7 +58,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 50
@@ -83,7 +83,7 @@ layers:
       source: NASA 
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: %                  
+      unit: Percentage (%)                  
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.total.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Total CH₄ Emission
@@ -114,7 +114,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 30
@@ -139,7 +139,7 @@ layers:
       source: NASA 
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.microbial.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Microbial CH₄ Emission
@@ -170,7 +170,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 50
@@ -195,7 +195,7 @@ layers:
       source: NASA 
       spatialExtent: CONUS
       temporalResolution: Daily 
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.fossil.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Fossil CH₄ Emission
@@ -226,7 +226,7 @@ layers:
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 8
@@ -251,12 +251,12 @@ layers:
       source: NASA 
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.pyrogenic.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Pyrogenic CH₄ Emission
 
-  - id: pyrogenic-ch4
+  - id: pyrogenic-ch4-1
     stacCol: lis-conus-nrt
     name: Volumetric Soil Moisture (0-100cm)
     type: raster
@@ -276,14 +276,14 @@ layers:
       
     compare:
       datasetId: lis-conus-nrt
-      layerId: pyrogenic-ch4
+      layerId: pyrogenic-ch4-1
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 8
@@ -308,12 +308,12 @@ layers:
       source: NASA 
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.pyrogenic.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Pyrogenic CH₄ Emission
 
-  - id: pyrogenic-ch4
+  - id: pyrogenic-ch4-2
     stacCol: lis-conus-nrt
     name: Volumetric Soil Moisture (0-200cm)
     type: raster
@@ -333,14 +333,14 @@ layers:
       
     compare:
       datasetId: lis-conus-nrt
-      layerId: pyrogenic-ch4
+      layerId: pyrogenic-ch4-2
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
         }
     legend:
       unit:
-        label: %
+        label: Percentage (%)
       type: gradient
       min: 0
       max: 8
@@ -365,7 +365,7 @@ layers:
       source: NASA 
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: %               
+      unit: Percentage (%)               
     media:
       src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.pyrogenic.png
       alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Pyrogenic CH₄ Emission
