@@ -263,14 +263,7 @@ layers:
 
 <Block>
   <Prose>   
-    **Temporal Extent:** 
-    ::js ({ dateFns, datetime }) => { 
-      if (dateFns && datetime) {
-        const startDate = dateFns.format(dateFns.subDays(datetime, 6), 'LLL d, yyyy');
-        const endDate = dateFns.format(datetime, 'LLL d, yyyy');
-        return `${startDate} - ${endDate}`;
-      }
-    }<br />
+    **Temporal Extent:** February 19,2025 - Present<br />
     **Temporal Resolution:** Daily<br />
     **Spatial Extent:** Alaska<br />    
     **Spatial Resolution:** 0.03° x 0.03°<br />    
