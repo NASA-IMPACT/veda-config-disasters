@@ -263,28 +263,24 @@ layers:
 
 <Block>
   <Prose>   
-    **Temporal Extent:** ::js ({ dateFns, datetime }) => { 
-  if (dateFns && datetime) {
-    return dateFns.format(dateFns.subDays(datetime, 6), 'LLL d, yyyy');
-  }
-}
- - 
- 
- ::js ({ dateFns, datetime }) => { 
-  if (dateFns && datetime) {
-    return dateFns.format(datetime, 'LLL d, yyyy');
-  }
-}
-<br />
+    **Temporal Extent:** 
+    ::js ({ dateFns, datetime }) => { 
+      if (dateFns && datetime) {
+        const startDate = dateFns.format(dateFns.subDays(datetime, 6), 'LLL d, yyyy');
+        const endDate = dateFns.format(datetime, 'LLL d, yyyy');
+        return `${startDate} - ${endDate}`;
+      }
+    }
+
+    <br />
     **Temporal Resolution:** Daily<br />
-    **Spatial Extent:** Alaska    
-    **Spatial Resolution:** 0.03° x 0.03°    
+    **Spatial Extent:** Alaska<br />    
+    **Spatial Resolution:** 0.03° x 0.03°<br />    
     **Data Type:** Research<br />
     **Data Latency:** Updated Daily
-
-    
   </Prose>
 </Block>
+
 <Block>
   <Prose>
 
