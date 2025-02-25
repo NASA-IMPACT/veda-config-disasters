@@ -31,9 +31,9 @@ infoDescription: |
     - Data Type: Research
     - Data Latency: Updated annually      
 layers:
-  - id: lis_ak_rsm_10cm
-    stacCol: lis-alaska-nrt
-    name: Relative Soil Moisture (0-10cm)
+  - id: alaska_soil_moisture_10cm
+    stacCol: lis_ak_rsm_10cm
+    name: Relative Soil Moisture (0-10cm), Updated Daily
     type: arc
     description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
     initialDatetime: newest
@@ -50,8 +50,8 @@ layers:
         - 1
       
     compare:
-      datasetId: lis-alaska-nrt
-      layerId: lis_ak_rsm_10cm
+      datasetId: lis_ak_rsm_10cm
+      layerId: alaska_soil_moisture_10cm
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
@@ -85,12 +85,12 @@ layers:
       temporalResolution: Daily
       unit: Percentage %                  
     media:
-      src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.total.png
-      alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Total CH₄ Emission
+      src: ::file ./media/alaska_soil_moisture.thumbnail.png
+      alt: Relative soil moisture percentiles for the state of Alaska
 
-  - id: lis_ak_rsm_40cm
-    stacCol: lis-alaska-nrt
-    name: Relative Soil Moisture (0-40cm)
+  - id: alaska_soil_moisture_40cm
+    stacCol: lis_ak_rsm_40cm
+    name: Relative Soil Moisture (0-40cm), Updated Daily
     type: raster
     description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
     initialDatetime: newest
@@ -107,8 +107,8 @@ layers:
         - 1
       
     compare:
-      datasetId: lis-alaska-nrt
-      layerId: lis_ak_rsm_40cm
+      datasetId: lis_ak_rsm_40cm
+      layerId: alaska_soil_moisture_40cm
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
@@ -142,12 +142,12 @@ layers:
       temporalResolution: Daily
       unit: Percentage %               
     media:
-      src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.microbial.png
-      alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Microbial CH₄ Emission
+      src: ::file ./media/alaska_soil_moisture.thumbnail.png
+      alt: Relative soil moisture percentiles for the state of Alaska
 
-  - id: lis_ak_green_veg_fraction
-    stacCol: lis-alaska-nrt
-    name: Green Vegetation Fraction
+  - id: alaska_gvf
+    stacCol: lis_ak_green_veg_fraction
+    name: Green Vegetation Fraction, Updated Daily
     type: raster
     description: Green Vegetation Fraction (GVF) from VIIRS on Suomi NPP.
     initialDatetime: newest
@@ -164,8 +164,8 @@ layers:
         - 1
       
     compare:
-      datasetId: lis-alaska-nrt
-      layerId: lis_ak_green_veg_fraction
+      datasetId: lis_ak_green_veg_fraction
+      layerId: alaska_gvf
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
@@ -199,12 +199,12 @@ layers:
       temporalResolution: Daily 
       unit: Percentage %               
     media:
-      src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.fossil.png
-      alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Fossil CH₄ Emission
+      src: ::file ./media/alaska_green_vegetative_fraction.thumbnail.png
+      alt: Green vegetation fraction for the state of Alaska
 
-  - id: lis_ak_snow_depth
-    stacCol: lis-alaska-nrt
-    name: Snow Depth
+  - id: alaska_snow_depth
+    stacCol: lis_ak_snow_depth
+    name: Snow Depth, Updated Daily
     type: raster
     description: Snow depth for the state of Alaska.
     initialDatetime: newest
@@ -221,8 +221,8 @@ layers:
         - 1000
       
     compare:
-      datasetId: lis-alaska-nrt
-      layerId: lis_ak_snow_depth
+      datasetId: lis_ak_snow_depth
+      layerId: alaska_snow_depth
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
@@ -256,14 +256,26 @@ layers:
       temporalResolution: Daily
       unit: Inches           
     media:
-      src: ::file ./media/tm54dvar-ch4flux-monthgrid-v1.thumbnails.pyrogenic.png
-      alt: TM5-4DVar Isotopic CH₄ Inverse Fluxes - Pyrogenic CH₄ Emission
+      src: ::file ./media/alaska_snow_depth.thumbnail.png
+      alt: Snow depth for the state of Alaska
 
 ---
 
 <Block>
   <Prose>   
-    **Temporal Extent:** June 1, 2010 - Present<br />
+    **Temporal Extent:** ::js ({ dateFns, datetime }) => { 
+  if (dateFns && datetime) {
+    return dateFns.format(dateFns.subDays(datetime, 6), 'LLL d, yyyy');
+  }
+}
+ - 
+ 
+ ::js ({ dateFns, datetime }) => { 
+  if (dateFns && datetime) {
+    return dateFns.format(datetime, 'LLL d, yyyy');
+  }
+}
+<br />
     **Temporal Resolution:** Daily<br />
     **Spatial Extent:** Alaska    
     **Spatial Resolution:** 0.03° x 0.03°    
@@ -275,13 +287,19 @@ layers:
 </Block>
 <Block>
   <Prose>
+
+    The NASA Short-term Prediction Research and Transition (SPoRT) Center runs the Alaska LIS (LIS-AK), a near-real-time version of the Noah land surface model at 0.03 degree resolution utilizing the NASA Land Information System (LIS) software.  The model input is the Global Data Assimilation (GDAS) forcing dataset, which is a near-real-time analysis of various observational data (ground, radar, satellite) consisting of surface meteorology (temperature, humidity, pressure, winds, precipitation) and downwelling long- and short-wave radiation. 
+
+    Within LIS, the Noah Land Surface Model (LSM) is forced by this input data and produces analyses of soil temperature and moisture in 4 layers plus the snow state and fluxes of energy and water at the surface.  The Noah LSM accounts for snow accumulation based on the current LIS snow values in the continuous run and the forcing data from the atmospheric model.  Forcing variables influencing the snow depth in LIS include precipitation, air temperature, solar radiation.  Relevant modeled processes include compaction of snow, sublimation, and melting.
+
+
     ## Source Data Product Citation
     NASA Land Information System model configuration and information can be found in this [peer-reviewed article](doi:10.1016/j.envsoft.2005.07.00).
+
     ## Version History
+    Version: 6.14(3.0.1)
 
     ## Dataset Accuracy
-
-    ## Disclaimer
 
     ## Scientific Details
 
@@ -295,7 +313,8 @@ layers:
     Hoylman, Z. H., Holden, Z., Bocinsky, R. K., Ketchum, D., Swanson, A., & Jencso, K. (2024). Optimizing drought assessment for soil moisture deficits. Water Resources Research, (60), [https://doi.org/10.1029/2023WR036087](https://doi.org/10.1029/2023WR036087). 
     ## Learn More
 
-    ## Acknowledgment
+    ## Limitations of use
+    NASA data and products are freely available to federal, state, public, non-profit and commercial users. This information can be experimental- or research-grade data products and may not be appropriate for operational use. These NASA data products, services, and the Disasters Mapping Portal are intended to aid decision makers and enhance situational awareness, but these data are not guaranteed to be consistently available or routinely updated. Please cite the information according to the direction provided in the metadata.
 
     ## License
     [Creative Commons Zero v1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (CC0 1.0)
