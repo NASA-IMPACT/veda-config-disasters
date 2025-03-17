@@ -41,9 +41,14 @@ layers:
       id: 'equirectangular'
     zoomExtent:
       - 0
-      - 0
+      - 20
+    analysis:
+      exclude: true
     sourceParams:
-      assets: total
+      layers: 1
+      version: 1.3.0
+      crs: EPSG:3857
+      assets: rsm_10cm
       colormap_name: purd
       rescale:
         - 0
@@ -63,31 +68,30 @@ layers:
       min: 0
       max: 1
       stops:
-        - '#8b6459'
-        - '#b48b81'
-        - '#e1beb4'
-        - '#a50000'
-        - '#e11300'
-        - '#ff3200'
-        - '#ff6000'
-        - '#ffa000'
-        - '#ffbf3c'
-        - '#ffe778'
-        - '#95f58b'
-        - '#4ff04f'
-        - '#1db41d'
-        - '#1364d1'
-        - '#2881f0'
-        - '#4fa5f5'
-        - '#95d1fa'
-        - '#a08bff'
-        - '#6f60db'
-        - '#3c28b4'
+        - rgb(60,40,180)
+        - rgb(111,96,219)
+        - rgb(160,139,255)
+        - rgb(149,209,251)
+        - rgb(79,165,245)
+        - rgb(40,129,240)
+        - rgb(19,100,209)
+        - rgb(29,180,30)
+        - rgb(79,240,79)
+        - rgb(149,245,139)
+        - rgb(255,231,121)
+        - rgb(255,191,60)
+        - rgb(255,160,1)
+        - rgb(255,96,0)
+        - rgb(255,50,1)
+        - rgb(226,18,0)
+        - rgb(165,0,0)
+        - rgb(225,190,180)
+        - rgb(180,139,130)
+        - rgb(139,100,89)
     analysis:
       metrics:
         - mean
       sourceParams:
-        
         dst_crs: "+proj=cea"
     info:
       source: NASA 
@@ -109,8 +113,13 @@ layers:
     zoomExtent:
       - 0
       - 20
+    analysis:
+      exclude: true
     sourceParams:
-      assets: microbial
+      layers: 1
+      version: 1.3.0
+      crs: EPSG:3857
+      assets: rsm_40cm
       colormap_name: purd
       rescale:
         - 0
@@ -130,26 +139,26 @@ layers:
       min: 0
       max: 1
       stops:
-        - '#8b6459'
-        - '#b48b81'
-        - '#e1beb4'
-        - '#a50000'
-        - '#e11300'
-        - '#ff3200'
-        - '#ff6000'
-        - '#ffa000'
-        - '#ffbf3c'
-        - '#ffe778'
-        - '#95f58b'
-        - '#4ff04f'
-        - '#1db41d'
-        - '#1364d1'
-        - '#2881f0'
-        - '#4fa5f5'
-        - '#95d1fa'
-        - '#a08bff'
-        - '#6f60db'
-        - '#3c28b4'
+        - rgb(60,40,180)
+        - rgb(111,96,219)
+        - rgb(160,139,255)
+        - rgb(149,209,251)
+        - rgb(79,165,245)
+        - rgb(40,129,240)
+        - rgb(19,100,209)
+        - rgb(29,180,30)
+        - rgb(79,240,79)
+        - rgb(149,245,139)
+        - rgb(255,231,121)
+        - rgb(255,191,60)
+        - rgb(255,160,1)
+        - rgb(255,96,0)
+        - rgb(255,50,1)
+        - rgb(226,18,0)
+        - rgb(165,0,0)
+        - rgb(225,190,180)
+        - rgb(180,139,130)
+        - rgb(139,100,89)
 
     analysis:
       metrics:
@@ -177,9 +186,14 @@ layers:
     zoomExtent:
       - 0
       - 20
+    analysis:
+      exclude: true
     sourceParams:
-      assets: fossil
-      colormap_name: purd
+      layers: 1
+      version: 1.3.0
+      crs: EPSG:3857
+      assets: gvf
+      colormap_name: grbr
       rescale:
         - 0
         - 1
@@ -198,16 +212,16 @@ layers:
       min: 0
       max: 1
       stops:
-        - '#784f45'
-        - '#a0786e'
-        - '#c7a095'
-        - '#ffe778'
-        - '#a0e632'
-        - '#b4faaa'
-        - '#78f573'
-        - '#37d13c'
-        - '#1db41d'
-        - '#0ea00e'
+        - rgb(14,161,14)
+        - rgb(29,180,30)
+        - rgb(55,209,60)
+        - rgb(120,245,115)
+        - rgb(180,250,170)
+        - rgb(160,230,50)
+        - rgb(255,231,121)
+        - rgb(199,160,150)
+        - rgb(160,120,111)
+        - rgb(120,79,69)
     analysis:
       metrics:
         - mean
@@ -234,7 +248,12 @@ layers:
     zoomExtent:
       - 0
       - 20
+    analysis:
+      exclude: true
     sourceParams:
+      layers: 1
+      version: 1.3.0
+      crs: EPSG:3857
       assets: pyrogenic
       colormap_name: purd
       rescale:
