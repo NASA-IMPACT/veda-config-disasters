@@ -253,8 +253,8 @@ layers:
         - 1
       
     compare:
-      datasetId: conus_volumetric_soil_moisture_40cm
-      layerId: lis_vsm_percentile_40cm
+      datasetId: lis_vsm_percentile_40cm
+      layerId: conus_volumetric_soil_moisture_40cm
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
