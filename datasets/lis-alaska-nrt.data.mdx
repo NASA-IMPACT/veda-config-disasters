@@ -56,7 +56,7 @@ layers:
       
     compare:
       datasetId: lis_ak_rsm_10cm
-      layerId: alaska_soil_moisture_10cm
+      layerId: alaska_relative_soil_moisture_10cm
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
@@ -127,7 +127,7 @@ layers:
       
     compare:
       datasetId: lis_ak_rsm_40cm
-      layerId: alaska_soil_moisture_40cm
+      layerId: alaska_relative_soil_moisture_40cm
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
