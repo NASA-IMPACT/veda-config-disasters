@@ -48,7 +48,6 @@ layers:
       version: 1.3.0
       crs: EPSG:3857
       assets: rsm_10cm
-      colormap_name: purd
       rescale:
         - 0
         - 1
@@ -61,7 +60,7 @@ layers:
           if (dateFns && datetime && compareDatetime) return `${dateFns.format(datetime, 'LLL yyyy')} VS ${dateFns.format(compareDatetime, 'LLL yyyy')}`;
         }
     legend:
-      unit:
+      unit:   
         label: Percentage %
       type: gradient
       min: 0
@@ -115,7 +114,6 @@ layers:
       version: 1.3.0
       crs: EPSG:3857
       assets: rsm_40cm
-      colormap_name: purd
       rescale:
         - 0
         - 1
@@ -183,7 +181,6 @@ layers:
       version: 1.3.0
       crs: EPSG:3857
       assets: gvf
-      colormap_name: grbr
       rescale:
         - 0
         - 1
@@ -240,7 +237,6 @@ layers:
       version: 1.3.0
       crs: EPSG:3857
       assets: pyrogenic
-      colormap_name: purd
       rescale:
         - 0
         - 1000
