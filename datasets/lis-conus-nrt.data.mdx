@@ -17,25 +17,25 @@ taxonomy:
       - Drought
       - Evapotranspiration
       - Hydrology
-      - Water Resources          
+      - Water Resources
   - name: Source
     values:
       - NASA
 infoDescription: |
-  ::markdown 
+  ::markdown
     - Temporal Extent: Two weeks prior - present
     - Temporal Resolution: Daily
-    - Spatial Extent: CONUS    
-    - Spatial Resolution: 0.03° x 0.03°  
-    - Data Units: Percentage (%)     
+    - Spatial Extent: CONUS
+    - Spatial Resolution: 0.03° x 0.03°
+    - Data Units: Percentage (%)
     - Data Type: Research
-    - Data Latency: Updated daily      
+    - Data Latency: Updated daily
 layers:
   - id: conus_relative_soil_moisture_10cm
     stacCol: nrt_lis_conus_rsm_10cm
     stacApiEndpoint: https://dev.openveda.cloud/api/stac
     name:  Relative Soil Moisture (0-10cm), Updated Daily
-    type: arc
+    type: wms
     description: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
     initialDatetime: newest
     projection:
@@ -85,10 +85,10 @@ layers:
     analysis:
       exclude: true
     info:
-      source: NASA 
+      source: NASA
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: Percentage %                  
+      unit: Percentage %
     media:
       src: ::file ./media/conus_relative_soil_moisture.thumbnail.jpg
       alt: Relative soil moisture percentiles
@@ -109,7 +109,7 @@ layers:
       layers: lis_rsm_2m:lis_rsm
       version: 1.3.0
       crs: EPSG:3857
-      
+
     compare:
       datasetId: lis-conus-nrt
       layerId: conus_relative_soil_moisture_200cm
@@ -147,10 +147,10 @@ layers:
     analysis:
       exclude: true
     info:
-      source: NASA 
+      source: NASA
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: Percentage %               
+      unit: Percentage %
     media:
       src: ::file ./media/conus_relative_soil_moisture.thumbnail.jpg
       alt: Relative soil moisture percentiles
@@ -171,7 +171,7 @@ layers:
       layers: lis_vsm_percentile_10cm:list_percentile_red-blue
       version: 1.3.0
       crs: EPSG:3857
-      
+
     compare:
       datasetId: lis-conus-nrt
       layerId: conus_volumetric_soil_moisture_10cm
@@ -200,10 +200,10 @@ layers:
     analysis:
       exclude: true
     info:
-      source: NASA 
+      source: NASA
       spatialExtent: CONUS
-      temporalResolution: Daily 
-      unit: Percentage %               
+      temporalResolution: Daily
+      unit: Percentage %
     media:
       src: ::file ./media/conus_volumetric_soil_moisture.thumbnail.jpg
       alt: Volumetric soil moisture percentiles
@@ -224,7 +224,7 @@ layers:
       layers: lis_vsm_percentile_40cm:list_percentile_red-blue
       version: 1.3.0
       crs: EPSG:3857
-      
+
     compare:
       datasetId: lis-conus-nrt
       layerId: conus_volumetric_soil_moisture_40cm
@@ -253,10 +253,10 @@ layers:
     analysis:
       exclude: true
     info:
-      source: NASA 
+      source: NASA
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: Percentage %               
+      unit: Percentage %
     media:
       src: ::file ./media/conus_volumetric_soil_moisture.thumbnail.jpg
       alt: Volumetric soil moisture percentiles
@@ -277,7 +277,7 @@ layers:
       layers: lis_vsm_percentile_100cm:list_percentile_red-blue
       version: 1.3.0
       crs: EPSG:3857
-      
+
     compare:
       datasetId: lis-conus-nrt
       layerId: conus_volumetric_soil_moisture_100cm
@@ -306,10 +306,10 @@ layers:
     analysis:
       exclude: true
     info:
-      source: NASA 
+      source: NASA
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: Percentage %               
+      unit: Percentage %
     media:
       src: ::file ./media/conus_volumetric_soil_moisture.thumbnail.jpg
       alt: Volumetric soil moisture percentiles
@@ -330,7 +330,7 @@ layers:
       layers: lis_vsm_percentile_200cm:list_percentile_red-blue
       version: 1.3.0
       crs: EPSG:3857
-      
+
     compare:
       datasetId: lis-conus-nrt
       layerId: conus_volumetric_soil_moisture_200cm
@@ -359,10 +359,10 @@ layers:
     analysis:
       exclude: true
     info:
-      source: NASA 
+      source: NASA
       spatialExtent: CONUS
       temporalResolution: Daily
-      unit: Percentage %               
+      unit: Percentage %
     media:
       src: ::file ./media/conus_volumetric_soil_moisture.thumbnail.jpg
       alt: Volumetric soil moisture percentiles
@@ -370,16 +370,16 @@ layers:
 ---
 
 <Block>
-  <Prose>   
+  <Prose>
     **Temporal Extent:** 15 days prior - Present<br />
     **Temporal Resolution:** Daily<br />
-    **Spatial Extent:** Contiguous United States (CONUS)    
-    **Spatial Resolution:** 0.03° x 0.03°   
-    **Data Units:** Percentage (%)       
+    **Spatial Extent:** Contiguous United States (CONUS)
+    **Spatial Resolution:** 0.03° x 0.03°
+    **Data Units:** Percentage (%)
     **Data Type:** Research<br />
     **Data Latency:** Updated Daily
 
-    
+
   </Prose>
 </Block>
 <Block>
@@ -401,7 +401,7 @@ layers:
     The 33-year soil moisture climatology also provides the database for real-time soil moisture percentiles evaluated for all U.S. counties and at each modeled grid point. The present-day soil moisture analyses are compared to daily historical distributions to determine the soil wet/dry anomalies for the specific day of the year. Soil moisture percentile maps are constructed for the model layers, and these data are frequently referenced by scientists and operational agencies contributing to the weekly U.S. Drought Monitor product.
 
     ## Key Publications
-    Aaron, J. and Peursem, K.V. Utilizing Remote Sensing & NASA SPoRT Land Information System-Alaska To Improve Flood & Landslide Situational Awareness From Heavy Precipitation. 104th AMS Annual Meeting. AMS, 2024. [https://ams.confex.com/ams/104ANNUAL/mediafile/Handout/Paper435177/AMS_2024_AK-LIS%202020%20event.pptx.pdf](https://ams.confex.com/ams/104ANNUAL/mediafile/Handout/Paper435177/AMS_2024_AK-LIS%202020%20event.pptx.pdf) 
+    Aaron, J. and Peursem, K.V. Utilizing Remote Sensing & NASA SPoRT Land Information System-Alaska To Improve Flood & Landslide Situational Awareness From Heavy Precipitation. 104th AMS Annual Meeting. AMS, 2024. [https://ams.confex.com/ams/104ANNUAL/mediafile/Handout/Paper435177/AMS_2024_AK-LIS%202020%20event.pptx.pdf](https://ams.confex.com/ams/104ANNUAL/mediafile/Handout/Paper435177/AMS_2024_AK-LIS%202020%20event.pptx.pdf)
 
     Tavakol, A., Rahmani, V., Quiring, S.M., Kumar, S.V. (2019). Evaluation analysis of NASA SMAP L3 and L4 and SPoRT-LIS soil moisture data in the United States. Remote Sensing of Environment, (229), 234-246, [https://doi.org/10.1016/j.rse.2019.05.006](https://doi.org/10.1016/j.rse.2019.05.006).
 
