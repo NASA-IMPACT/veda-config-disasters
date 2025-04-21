@@ -9,7 +9,7 @@ const defaultMenuLinks = [
   },
   {
     title: 'Near Real-Time Data',
-    to: '/about',
+    to: '/datasets',
     type: 'internalLink'
   },
   {
