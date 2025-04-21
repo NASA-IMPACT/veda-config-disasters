@@ -11,13 +11,51 @@ media:
 
 ---
 
+<style>{`
+  .data-table {
+    display: flex;
+    gap: 2rem;
+    justify-content: center; 
+    margin: 0 auto; 
+  }
+  .data-table thead th,
+  .data-table tbody td {
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 1rem;
+  }
+  .data-table thead th {
+    font-size: 1.2rem; 
+  }
+  .fat {
+    background: #F6251F; 
+  }
+  .inj {
+    background: #F6DC1F; 
+  }
+  .miss {
+    background: #28DFF3; 
+  }
+  .total {
+    background: #EEEEEE; 
+  }
+  .bold-row {
+    font-weight: bold; 
+  }
+  @media only screen and (max-width: 544px) {
+    .data-table {
+      flex-flow: column;
+    }
+  }
+`}</style>
+
 <Block>
   <Prose>
   ### Overview  
   On March 28, 2025, a powerful 7.7 magnitude earthquake struck central Myanmar near Mandalay, causing widespread devastation and loss of life. The tremor resulted in over 3,300 fatalities (and counting), thousands of injuries, and significant damage to infrastructure and cultural heritage sites. The impact was also felt in neighboring countries, including Thailand, where buildings collapsed, leading to additional casualties. This earthquake highlights the devastating effects such natural disasters can have on communities and the importance of understanding seismic events.
   </Prose>
   <Figure>
-        <iframe width="750" height="423" src="https://youtu.be/4fzN_-sayOs?si=02fSI-SvHkgsQG8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="750" height="423" src="https://www.youtube.com/embed/4fzN_-sayOs?si=tDzNYoQoVq_cESET" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <figcaption>Daamge in Myanmar from the major earthqyake on March 28, 2025.</figcaption>
   </Figure>
 
@@ -70,7 +108,57 @@ media:
 
   The earthquake resulted in over 3,300 deaths and more than 4,800 injuries (and counting). Hundreds remained missing in the aftermath. The disaster severely damaged infrastructure, including hospitals and schools, complicating rescue and relief operations. International aid was mobilized, with contributions from over 18 countries and organizations like the United Nations providing support. Recovery efforts faced challenges due to the extensive damage and the region's complex political situation. ​
 
-  TABLE - FAT/INJ/MISSING by Country
   </Prose>
 </Block>
 
+<Block>
+<Figure style={{ display: 'block' }}>
+  <div className='data-table'>
+    <table>
+      <thead>
+        <tr>
+          <th>   Country   </th>
+          <th>   Fatalities   </th>
+          <th>   Injuries   </th>
+          <th>   Missing   </th>
+          <th>   Total Casualties </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>Myanmar</td>
+          <td class='fat'>5,352</td>
+          <td class='inj'>11,366</td>
+          <td class='miss'>538</td>
+          <td class='total'>17,256</td>
+        </tr>
+        <tr>
+          <td>Thailand</td>
+          <td class='fat'>54</td>
+          <td class='inj'>34</td>
+          <td class='miss'>47</td>
+          <td class='total'>135</td>
+        </tr>
+        <tr>
+          <td>China</td>
+          <td class='fat'>0</td>
+          <td class='inj'>2</td>
+          <td class='miss'>0</td>
+          <td class='total'>2</td>
+        </tr>
+        <tr>
+          <td>Vietnam</td>
+          <td class='fat'>1</td>
+          <td class='inj'>0</td>
+          <td class='miss'>0</td>
+          <td class='total'>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<Caption>
+  Table 1: Official causalty count of the March 28, 2025 Myanmar earthquake, as of April 21, 2025.
+</Caption>  
+</Figure>
+</Block>
