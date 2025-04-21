@@ -29,7 +29,7 @@ infoDescription: |
     - Spatial Resolution: 0.03° x 0.03°
     - Data Units: Relative soil moisture (RSM) is a ratio of the volumetric soil moisture between the wilting and saturation points for a given soil type.
     - Data Type: Research
-    - Data Latency: Updated annually
+    - Data Latency: Updated daily
 layers:
   - id: alaska_relative_soil_moisture_10cm
     stacCol: nrt_lis_ak_rsm_10cm
@@ -249,7 +249,7 @@ layers:
 
 <Block>
   <Prose>
-
+    ## About 
     The NASA Short-term Prediction Research and Transition (SPoRT) Center runs the Alaska LIS (LIS-AK), a near-real-time version of the Noah land surface model at 0.03 degree resolution utilizing the NASA Land Information System (LIS) software.  The model input is the Global Data Assimilation (GDAS) forcing dataset, which is a near-real-time analysis of various observational data (ground, radar, satellite) consisting of surface meteorology (temperature, humidity, pressure, winds, precipitation) and downwelling long- and short-wave radiation.
 
     Within LIS, the Noah Land Surface Model (LSM) is forced by this input data and produces analyses of soil temperature and moisture in 4 layers plus the snow state and fluxes of energy and water at the surface.  The Noah LSM accounts for snow accumulation based on the current LIS snow values in the continuous run and the forcing data from the atmospheric model.  Forcing variables influencing the snow depth in LIS include precipitation, air temperature, solar radiation.  Relevant modeled processes include compaction of snow, sublimation, and melting.
@@ -260,7 +260,11 @@ layers:
 
     ## Version History
     Version: 6.14(3.0.1)
+  </Prose>
+</Block>
 
+<Block>
+  <Prose>
     ## Scientific Details
     Relative soil moisture (RSM) provides a measure of the soil saturation without having to consider the variation in soil type.  RSM is analogous to relative humidity for air saturation.  Thus, RSM provides an easy measure of the level of saturation as opposed to a volumetric value where the differing amounts of space between soil particles causes inconsistent volumetric maxima per soil type.  The water in the soil can be in liquid or frozen form.
 
@@ -277,25 +281,21 @@ layers:
 
     Hoylman, Z. H., Holden, Z., Bocinsky, R. K., Ketchum, D., Swanson, A., & Jencso, K. (2024). Optimizing drought assessment for soil moisture deficits. Water Resources Research, (60), [https://doi.org/10.1029/2023WR036087](https://doi.org/10.1029/2023WR036087).
 
-    ## Soil Moisture limitations
+  </Prose>
+</Block>
+
+<Block>
+  <Prose>
+    ## Data Limitations
+
+    #### Soil Moisture
     The SPoRT-LIS is as good as the input forcing analyses, so occasional soil moisture artifacts may appear in the horizontal maps related to quality-control issues of the input datasets. These can be manifested with unusually low or high percentiles, especially along international borders, coastlines, and isolated dry “bulls-eyes” at rain gauge with quality issues.
 
-    ## Snow Depth limitations
+    #### Snow Depth
     Inaccuracies in the forcing data will result in inaccuracies in model data.  Large portions of the state are data-sparse so the GDAS forcing data, and hence the LIS output, may be subject to larger errors than usual.  Snow depth in coastal areas is subject to higher error and is often underestimated.  In some high-altitude, permanently glaciated areas, the model may accumulate too much snow.  The Noah (LSM) used within LIS does not represent snow removal or transport from wind scouring.
 
-    ## Green Vegetation Fraction limitations
+    #### Green Vegetation Fraction
     This product is derived from satellite observations of cloud-free scenes.  In cloudy areas, it may be a few days behind the actual conditions. The VIIRS GVF product is updated every day, but the retrieval process contains time-weighted reflectance composites using data over the past week, in order to generate spatially continuous grids in the daily product.  So there can be some noticeable time-lags during rapid green-up or brown-down transitions.
-
-    ## Additional Resources
-    | SPoRT Archives |
-    | ---------------------------|
-    | [SPoRT Outputs](https://nssrgeo.ndc.nasa.gov/SPoRT/modeling/lis/alaska3km/geotiff/) |
-    | Real-time SPoRT-LIS Viewer |
-    | ---------------------------|
-    | [Relative soil moisture (0-10cm)](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=rsoim0-10&mode=nrt) |
-    | [Relative soil moisture (0-40cm)](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=rsoim10-40&mode=nrt) |
-    | [Green Vegetation Fraction](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=gvf&mode=nrt) |
-    | [Snow Depth](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=snod&mode=nrt) |
 
     ## Limitations of use
     NASA data and products are freely available to federal, state, public, non-profit and commercial users. This information can be experimental- or research-grade data products and may not be appropriate for operational use. These NASA data products, services, and the Disasters Mapping Portal are intended to aid decision makers and enhance situational awareness, but these data are not guaranteed to be consistently available or routinely updated. Please cite the information according to the direction provided in the metadata.
@@ -303,5 +303,20 @@ layers:
     ## License
     [Creative Commons Zero v1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/legalcode) (CC0 1.0)
 
+  </Prose>
+</Block>
+
+
+<Block>
+  <Prose>
+    ### Additional Resources
+    - [SPoRT Outputs Archives](https://nssrgeo.ndc.nasa.gov/SPoRT/modeling/lis/alaska3km/geotiff/)
+
+    ### Real-time SPoRT-LIS Viewer 
+ 
+    - [Relative soil moisture (0-10cm)](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=rsoim0-10&mode=nrt)
+    - [Relative soil moisture (0-40cm)](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=rsoim10-40&mode=nrt)
+    - [Green Vegetation Fraction](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=gvf&mode=nrt)
+    - [Snow Depth](https://weather.ndc.nasa.gov/sport/viewer/?dataset=lis_ak&product=snod&mode=nrt)
   </Prose>
 </Block>
