@@ -2,7 +2,7 @@
 id: burma-eq
 name: Datasets Supporting 2025 Burma Earthquake Data Story
 isHidden: false
-description: x
+description: Datasets supporting the data story on the damaging March 28, 2025 Burma magnitude 7.7 earthquake. 
 
 media:
   src: ::file ../stories/media/burma-eq-background.jpg
@@ -50,7 +50,6 @@ layers:
       resampling: bilinear
       rescale: -0,255
       nodata: -999
-
     legend:
       unit:
         label: Wm-2sr-1cm-1
@@ -67,7 +66,7 @@ layers:
         - "#aaaaaa"
         - "#ffffff"
     compare:
-      datasetId: burma-eq-night-lights
+      datasetId: burma-eq
       layerId: burma-eq-night-lights
       mapLabel: |
         ::js ({ dateFns, datetime, compareDatetime }) => {
@@ -75,10 +74,180 @@ layers:
         }
 
     info:
-      source: NASA
-      spatialExtent: CONUS
-      temporalResolution: Daily
-      unit: Percentage %
+      source: Black Marble
+      spatialExtent: Burma
+      temporalResolution: N/A
+      unit: Wm-2sr-1cm-1
+
+
+  - id: burma-eq-s2-deformation-ew
+    stacCol: burma-eq-s2-deformation-ew
+    stacApiEndpoint: https://staging.openveda.cloud/api/stac
+    tileApiEndpoint:  https://staging.openveda.cloud/api/raster
+    name:  S2 East-West Deformation - 2025 Burma Earthquake
+    type: raster
+    description: NASA/JPL/Caltech/ARIA product - modified Copernicus Sentinel-2 Multispectral Imager (MSI) east-west ground displacement from February 28 to April 1, 2025.
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      colormap_name: bwr_r
+      resampling: bilinear
+      rescale: -5,5
+      nodata: -999
+    legend:
+      unit:
+        label: m
+      type: gradient
+      min: "-5"
+      max: "5"
+      stops:
+        - "#8b0000"
+        - "#cd3333"
+        - "#f4a582"
+        - "#fddbc7"
+        - "#ffffff"
+        - "#d1e5f0"
+        - "#92c5de"
+        - "#0571b0"
+    compare:
+      datasetId: burma-eq
+      layerId: burma-eq-s2-deformation-ns
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+    info:
+      source: NASA JPL
+      spatialExtent: Burma
+      temporalResolution: N/A
+      unit: m
+
+
+  - id: burma-eq-s2-deformation-ns
+    stacCol: burma-eq-s2-deformation-ns
+    stacApiEndpoint: https://staging.openveda.cloud/api/stac
+    tileApiEndpoint:  https://staging.openveda.cloud/api/raster
+    name:  S2 North-South Deformation - 2025 Burma Earthquake
+    type: raster
+    description: NASA/JPL/Caltech/ARIA product - modified Copernicus Sentinel-2 Multispectral Imager (MSI) north-south ground displacement from February 28 to April 1, 2025.
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      colormap_name: bwr_r
+      resampling: bilinear
+      rescale: -5,5
+      nodata: -999
+    legend:
+      unit:
+        label: m
+      type: gradient
+      min: "-5"
+      max: "5"
+      stops:
+        - "#8b0000"
+        - "#cd3333"
+        - "#f4a582"
+        - "#fddbc7"
+        - "#ffffff"
+        - "#d1e5f0"
+        - "#92c5de"
+        - "#0571b0"
+    compare:
+      datasetId: burma-eq
+      layerId: burma-eq-s2-deformation-ew
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+    info:
+      source: NASA JPL
+      spatialExtent: Burma
+      temporalResolution: N/A
+      unit: m
+
+
+  - id: burma-eq-planet-pre
+    stacCol: burma-eq-planet-pre
+    stacApiEndpoint: https://staging.openveda.cloud/api/stac
+    tileApiEndpoint:  https://staging.openveda.cloud/api/raster
+    name:  PlanetScope Satellite Imagery (2025 Burma Earthquake - Pre)
+    type: raster
+    description: TrueColor RGB commercial satellite imagery from Planet Labs of the Mandalay, Burma area from before the 2025 earthquake. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      rescale:
+        - 0
+        - 255
+      resampling: bilinear
+      asset_bidx: cog_default|1,2,3
+    legend:
+      type: text
+    info:
+        source: Planet
+        spatialExtent: Local
+        temporalResolution: N/A
+        unit: Radiance
+    compare:
+      datasetId: burma-eq
+      layerId: burma-eq-planet-post
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+    info:
+        source: Planet
+        spatialExtent: Local
+        temporalResolution: N/A
+        unit: Radiance
+
+
+  - id: burma-eq-planet-post
+    stacCol: burma-eq-planet-post
+    stacApiEndpoint: https://staging.openveda.cloud/api/stac
+    tileApiEndpoint:  https://staging.openveda.cloud/api/raster
+    name:  PlanetScope Satellite Imagery (2025 Burma Earthquake - Post)
+    type: raster
+    description: TrueColor RGB commercial satellite imagery from Planet Labs of the Mandalay, Burma area from after the 2025 earthquake. This data was made available through the NASA Commercial Satellite Data Acquisition (CSDA) Program.
+    initialDatetime: newest
+    zoomExtent:
+      - 0
+      - 20
+    sourceParams:
+      rescale:
+        - 0
+        - 255
+      resampling: bilinear
+      asset_bidx: cog_default|1,2,3
+    legend:
+      type: text
+    info:
+        source: Planet
+        spatialExtent: Local
+        temporalResolution: N/A
+        unit: Radiance
+    compare:
+      datasetId: burma-eq
+      layerId: burma-eq-planet-pre
+      mapLabel: |
+        ::js ({ dateFns, datetime, compareDatetime }) => {
+          return `${dateFns.format(datetime, 'dd LLL yyyy')} VS ${dateFns.format(compareDatetime, 'dd LLL yyyy')}`;
+        }
+
+    info:
+        source: Planet
+        spatialExtent: Local
+        temporalResolution: N/A
+        unit: Radiance
 
 ---
 
