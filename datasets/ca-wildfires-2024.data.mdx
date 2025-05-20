@@ -153,17 +153,15 @@ layers:
       version: 1.3.0
       crs: EPSG:3857
       nodata: 255
-      resampling: bilinear
       rescale:
         - 0
         - 8
     legend:
       unit:
         label: Vegetation disturbance status
-      type: gradient
-      colormap_name: "reds"
-      min: 0
-      max: 8
+      type: categorical
+      min: "0"
+      max: "8"
       stops:
         - color: "#121212" 
           label: "0"
@@ -182,7 +180,7 @@ layers:
         - color: "#777777"
           label: "7"
         - color: "#dddddd"
-          label: "8
+          label: "8"
     analysis:
       exclude: true
     info:
